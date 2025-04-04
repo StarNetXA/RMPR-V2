@@ -1,0 +1,26 @@
+{
+  "name": "rmpr-v2",
+  "version": "1.0.0",
+  "description": "一个快速打包Minecraft整合包(Curseforge+MCBBS)的工具",
+  "homepage": "https://github.com/StarNetXA/RMPR-V2#readme",
+  "bugs": {
+    "url": "https://github.com/StarNetXA/RMPR-V2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StarNetXA/RMPR-V2.git"
+  },
+  "license": "MIT",
+  "author": "Tianpao",
+  "type": "module",
+  "main": "src/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node src/main.js"
+  },
+  "dependencies": {
+    "murmurhash": "^2.0.1"
+  }
+}
