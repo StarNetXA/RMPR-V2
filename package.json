@@ -21,6 +21,9 @@
     "test": "node src/main.js"
   },
   "dependencies": {
+    "archiver": "^7.0.1",
+    "got": "^14.4.7",
+    "inquirer": "^12.5.2",
     "murmurhash": "^2.0.1"
   }
 }
