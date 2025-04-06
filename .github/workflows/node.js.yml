@@ -51,7 +51,7 @@ jobs:
 
       - name: "打包为 tar.xz 文件"
         run: |
-          tar -caf ${{ matrix.artifact_name }} src package.json node_modules node run.sh
+          tar -caf ${{ matrix.artifact_name }} src lib package.json node_modules node run.sh
         if: contains(matrix.os, 'ubuntu') || contains(matrix.os, 'macos')
 
 
@@ -65,7 +65,7 @@ jobs:
 
       - name: "打包为 tar.gz 文件"
         run: |
-          tar -caf ${{ matrix.artifact_name }} src package.json node_modules node.exe run.bat
+          tar -caf ${{ matrix.artifact_name }} src lib package.json node_modules node.exe run.bat
         if: matrix.os == 'windows-latest'        
 
       - name: "上传文件"
