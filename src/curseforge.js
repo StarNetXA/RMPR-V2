@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import archiver from 'archiver'
 import got from 'got'
+import prettier from 'prettier'
 import { LOGGER } from './LOGGER.js';
 import {fingerprint} from '../lib/hashlib.js'
 
@@ -42,7 +43,7 @@ for(let c=0;c<resjson.data.exactFingerprints.length;c++){
     rtmp.push({"projectID": result.file.modId,"fileID": result.file.id,"required": true})
   }
 const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${modloader}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
-archive.append(latestjson, { //压缩元数据
+archive.append(prettier.format(latestjson,{parser:"json-stringify"}) , { //压缩元数据
 name: `manifest.json`,
 });
 ////本地处理
