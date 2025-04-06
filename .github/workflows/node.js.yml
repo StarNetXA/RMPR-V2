@@ -74,38 +74,6 @@ jobs:
           name: ${{ matrix.artifact_name }}
           path: ${{ matrix.artifact_name }}         
 
-  build-update-zip:
-    name: "构建 - 增量更新包"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "获取源代码"
-        uses: actions/checkout@v4
-
-      - name: "设置 Node.js 编译环境"
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          cache: 'npm'
-
-      - name: "安装依赖"
-        run: |
-          npm i --no-package-lock
-
-      - name: "开始构建"
-        run: |
-          npm run build
-
-      - name: "打包 update.zip"
-        run: |
-          zip -r update.zip src package.json
-
-      - name: "上传文件"
-        uses: actions/upload-artifact@v4
-        with:
-          name: update
-          path: |
-            src
-            package.json
 
   upload-to-release:
     name: "打包 - 上传至 Release"
