@@ -7,6 +7,16 @@ import { LOGGER } from './LOGGER.js';
 import {fingerprint} from '../lib/hashlib.js'
 
 export async function Curseforge(mcv,modloader,mlver,mpver,sf,pathx,mpname,mpdes) {
+  const mload = (() => {
+    switch (modloader) {
+      case "Forge":
+        return "forge";
+      case "Fabric":
+        return "fabric";
+      case "Neoforge":
+        return "neoforge";
+    }
+  })()
     //初始化ZIP
     const zipfile = fs.createWriteStream(
         `${mpname}-${mpver}[${mcv}-${modloader}].zip`
@@ -42,7 +52,7 @@ for(let c=0;c<resjson.data.exactFingerprints.length;c++){
     const result = resjson.data.exactMatches.find(item => item.file.fileFingerprint === resjson.data.exactFingerprints[c]);
     rtmp.push({"projectID": result.file.modId,"fileID": result.file.id,"required": true})
   }
-const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${modloader}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
+const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${mload}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
 archive.append(await prettier.format(latestjson,{parser:"json-stringify"}) , { //压缩元数据
 name: `manifest.json`,
 });
