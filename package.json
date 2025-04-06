@@ -24,6 +24,8 @@
     "archiver": "^7.0.1",
     "got": "^14.4.7",
     "inquirer": "^12.5.2",
-    "murmurhash": "^2.0.1"
+    "murmurhash": "^2.0.1",
+    "pino": "^9.6.0",
+    "pino-pretty": "^13.0.0"
   }
 }

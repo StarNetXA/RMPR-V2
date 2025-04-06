@@ -6,6 +6,8 @@
 import inquirer from 'inquirer'
 import fs from 'fs'
 import path from 'path'
+import {LOGGER} from './LOGGER.js'
+import { Curseforge } from './curseforge.js';
 
 const prompt = inquirer.createPromptModule();
 await prompt([
@@ -75,6 +77,7 @@ await prompt([
     //await makemodpack(answers.type,answers.version,answers.modloader,answers.modloaderver,answers.mpversion,answers.selectedFile,answers.filepath,answers.mpname,answers.mpdes)
 switch(answers.type){
     case "Curseforge":
+      Curseforge(answers.version,answers.modloader,answers.modloaderver,answers.mpversion,answers.selectedFile,answers.filepath,answers.mpname,answers.mpdes)
         break;
     case "MCBBS":
         break;
