@@ -126,6 +126,8 @@ jobs:
 
       - name: "上传至 Release"
         uses: softprops/action-gh-release@v1
+        env:
+         GITHUB_TOKEN : ${{ secret.GITHUB_TOKEN }}
         with:
           files: |
             RMPR-linux-x64.tar.xz.zip
