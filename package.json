@@ -1,6 +1,6 @@
 {
   "name": "rmpr-v2",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "一个快速打包Minecraft整合包(Curseforge+MCBBS)的工具",
   "homepage": "https://github.com/StarNetXA/RMPR-V2#readme",
   "bugs": {
