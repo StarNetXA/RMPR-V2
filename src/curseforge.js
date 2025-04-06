@@ -43,7 +43,7 @@ for(let c=0;c<resjson.data.exactFingerprints.length;c++){
     rtmp.push({"projectID": result.file.modId,"fileID": result.file.id,"required": true})
   }
 const latestjson = JSON.stringify({"minecraft": {"version": mcv,"modLoaders": [{"id": `${modloader}-${mlver}`,"primary": true}]},"manifestType": "minecraftModpack","manifestVersion": 1,"name": mpname,"version": mpver,"author": mpdes,"files": rtmp, "overrides": "overrides"})
-archive.append(prettier.format(latestjson,{parser:"json-stringify"}) , { //压缩元数据
+archive.append(await prettier.format(latestjson,{parser:"json-stringify"}) , { //压缩元数据
 name: `manifest.json`,
 });
 ////本地处理
